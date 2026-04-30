@@ -16,7 +16,6 @@
 **Feature 3 — Job Recommendation System**
 - R6: Similar Jobs on Job Detail Page (Web)
 - R7: Similar Jobs on Job Detail Page (Mobile)
-
 ### Design
 - D1: Web Frontend (Next.js)
 - D2: Backend (Express — includes all REST API routes)
@@ -24,8 +23,7 @@
 - D4: Identity Verification Service
 - D5: Internal Conference Service
 - D6: Database (PostgreSQL)
-- D7: Mobile Frontend (Flutter)
-
+- D7: Mobile Client (Flutter)
 ### Code Modules
 - C1: Auth Module (`auth.routes.ts` + `auth.middleware.ts`)
 - C2: Users Module (`users.routes.ts`)
@@ -43,7 +41,6 @@
 - C14: Invitations Module (`invitations.routes.ts`)
 - C15: Web Application Code (Next.js frontend)
 - C16: Mobile Application Code (Flutter)
-
 ### Tests
 - T1: Auth Route Tests (`auth.routes.test.ts`)
 - T2: Jobs Route Tests (`jobs.routes.test.ts`)
@@ -54,14 +51,13 @@
 - T7: Middleware Tests (`auth.middleware.test.ts`, `error.middleware.test.ts`, `validate.middleware.test.ts`)
 - T8: Web Frontend Tests (hooks: `useAuth`, `useApplications`, `useBookmarks`, `useChat`, `useJobs`; components; context; lib)
 - T9: Mobile Tests (`application_model_test.dart`, `invitation_model_test.dart`, `job_model_test.dart`, `user_model_test.dart`, `widget_test.dart`)
-
 ---
-
+ 
 ## Traceability Graph (Full)
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R1[R1: Mobile App Core]
 R2[R2: Mobile App Placeholders]
@@ -71,7 +67,7 @@ R5[R5: Respond to Invitation]
 R6[R6: Similar Jobs - Web]
 R7[R7: Similar Jobs - Mobile]
 end
-
+ 
 subgraph Design
 D1[D1: Web Frontend]
 D2[D2: Backend]
@@ -79,9 +75,9 @@ D3[D3: Chatbot Service]
 D4[D4: Identity Verification]
 D5[D5: Conference Service]
 D6[D6: Database]
-D7[D7: Mobile Frontend]
+D7[D7: Mobile Client]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C2[C2: Users]
@@ -100,7 +96,7 @@ C14[C14: Invitations]
 C15[C15: Web App Code]
 C16[C16: Mobile App Code]
 end
-
+ 
 subgraph Tests
 T1[T1: Auth Tests]
 T2[T2: Jobs Tests]
@@ -112,10 +108,8 @@ T7[T7: Middleware Tests]
 T8[T8: Web Frontend Tests]
 T9[T9: Mobile Tests]
 end
-
+ 
 %% R → D
-R1 -.-> D2
-R1 -.-> D6
 R1 -.-> D7
 R2 -.-> D3
 R2 -.-> D5
@@ -134,7 +128,7 @@ R5 -.-> D6
 R5 -.-> D7
 R6 -.-> D1
 R7 -.-> D7
-
+ 
 %% D → D
 D1 --> D2
 D7 --> D2
@@ -142,7 +136,7 @@ D2 --> D3
 D2 --> D4
 D2 --> D5
 D2 --> D6
-
+ 
 %% D → C
 D1 -.-> C15
 D7 -.-> C16
@@ -177,7 +171,7 @@ D6 -.-> C11
 D6 -.-> C12
 D6 -.-> C13
 D6 -.-> C14
-
+ 
 %% C → C
 %% Middleware dependency: every module depends on C1
 %% Prisma model ownership: A queries model owned by B → A depends on B
@@ -213,7 +207,7 @@ C14 --> C1
 C14 --> C2
 C14 --> C3
 C14 --> C4
-
+ 
 %% C → T
 C1 -.-> T1
 C1 -.-> T6
@@ -234,26 +228,26 @@ C14 -.-> T4
 C15 -.-> T8
 C16 -.-> T9
 ```
-
+ 
 ---
-
+ 
 ## Traceability Graphs (Affected by each change)
-
+ 
 ### R1: Mobile App Core Features
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R1[R1: Mobile App Core]
 end
-
+ 
 subgraph Design
 D2[D2: Backend]
 D6[D6: Database]
-D7[D7: Mobile Frontend]
+D7[D7: Mobile Client]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C2[C2: Users]
@@ -269,7 +263,7 @@ C13[C13: Recommendations]
 C14[C14: Invitations]
 C16[C16: Mobile App Code]
 end
-
+ 
 subgraph Tests
 T1[T1: Auth Tests]
 T2[T2: Jobs Tests]
@@ -278,14 +272,12 @@ T4[T4: Applications Tests]
 T5[T5: Integration Route Tests]
 T9[T9: Mobile Tests]
 end
-
-R1 -.-> D2
-R1 -.-> D6
+ 
 R1 -.-> D7
-
+ 
 D7 --> D2
 D2 --> D6
-
+ 
 D2 -.-> C1
 D2 -.-> C2
 D2 -.-> C3
@@ -311,7 +303,7 @@ D6 -.-> C12
 D6 -.-> C13
 D6 -.-> C14
 D7 -.-> C16
-
+ 
 C2 --> C1
 C3 --> C1
 C4 --> C1
@@ -341,7 +333,7 @@ C14 --> C1
 C14 --> C2
 C14 --> C3
 C14 --> C4
-
+ 
 C1 -.-> T1
 C3 -.-> T2
 C5 -.-> T3
@@ -355,24 +347,24 @@ C12 -.-> T5
 C13 -.-> T5
 C16 -.-> T9
 ```
-
+ 
 ---
-
+ 
 ### R2: Mobile App Placeholder Screens
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R2[R2: Mobile App Placeholders]
 end
-
+ 
 subgraph Design
 D3[D3: Chatbot Service]
 D5[D5: Conference Service]
-D7[D7: Mobile Frontend]
+D7[D7: Mobile Client]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C7[C7: Interviews]
@@ -380,103 +372,104 @@ C9[C9: Chat]
 C10[C10: Conference]
 C16[C16: Mobile App Code]
 end
-
+ 
 subgraph Tests
 T5[T5: Integration Route Tests]
 T9[T9: Mobile Tests]
 end
-
+ 
 R2 -.-> D3
 R2 -.-> D5
 R2 -.-> D7
-
+ 
 D3 -.-> C9
 D5 -.-> C10
 D7 -.-> C16
-
+ 
 C9 --> C1
 C10 --> C1
 C10 --> C7
 C7 --> C1
-
+ 
 C9 -.-> T5
 C10 -.-> T5
 C16 -.-> T9
 ```
-
+ 
 ---
-
+ 
 ### R3: Applicant Search
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R3[R3: Applicant Search]
 end
-
+ 
 subgraph Design
 D1[D1: Web Frontend]
 D2[D2: Backend]
 D6[D6: Database]
-D7[D7: Mobile Frontend]
+D7[D7: Mobile Client]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C2[C2: Users]
+C3[C3: Jobs]
 C5[C5: Search]
 C15[C15: Web App Code]
 C16[C16: Mobile App Code]
 end
-
+ 
 subgraph Tests
 T3[T3: Search Tests]
 T8[T8: Web Frontend Tests]
 T9[T9: Mobile Tests]
 end
-
+ 
 R3 -.-> D1
 R3 -.-> D2
 R3 -.-> D6
 R3 -.-> D7
-
+ 
 D1 --> D2
 D7 --> D2
 D2 --> D6
-
+ 
 D2 -.-> C5
 D6 -.-> C5
 D1 -.-> C15
 D7 -.-> C16
-
+ 
 C5 --> C1
 C5 --> C2
 C5 --> C3
-
+ 
 C5 -.-> T3
 C15 -.-> T8
 C16 -.-> T9
 ```
-
+ 
 ---
-
+ 
 ### R4: Send Job Invitation
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R4[R4: Send Invitation]
 end
-
+ 
 subgraph Design
 D1[D1: Web Frontend]
 D2[D2: Backend]
 D6[D6: Database]
-D7[D7: Mobile Frontend]
+D7[D7: Mobile Client]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C2[C2: Users]
@@ -486,55 +479,55 @@ C14[C14: Invitations]
 C15[C15: Web App Code]
 C16[C16: Mobile App Code]
 end
-
+ 
 subgraph Tests
 T4[T4: Applications Tests]
 T8[T8: Web Frontend Tests]
 T9[T9: Mobile Tests]
 end
-
+ 
 R4 -.-> D1
 R4 -.-> D2
 R4 -.-> D6
 R4 -.-> D7
-
+ 
 D1 --> D2
 D7 --> D2
 D2 --> D6
-
+ 
 D2 -.-> C14
 D6 -.-> C14
 D1 -.-> C15
 D7 -.-> C16
-
+ 
 C14 --> C1
 C14 --> C2
 C14 --> C3
 C14 --> C4
-
+ 
 C4 -.-> T4
 C15 -.-> T8
 C16 -.-> T9
 ```
-
+ 
 ---
-
+ 
 ### R5: Respond to Invitation
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R5[R5: Respond to Invitation]
 end
-
+ 
 subgraph Design
 D1[D1: Web Frontend]
 D2[D2: Backend]
 D6[D6: Database]
-D7[D7: Mobile Frontend]
+D7[D7: Mobile Client]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C2[C2: Users]
@@ -544,122 +537,122 @@ C14[C14: Invitations]
 C15[C15: Web App Code]
 C16[C16: Mobile App Code]
 end
-
+ 
 subgraph Tests
 T4[T4: Applications Tests]
 T8[T8: Web Frontend Tests]
 T9[T9: Mobile Tests]
 end
-
+ 
 R5 -.-> D1
 R5 -.-> D2
 R5 -.-> D6
 R5 -.-> D7
-
+ 
 D1 --> D2
 D7 --> D2
 D2 --> D6
-
+ 
 D2 -.-> C14
 D2 -.-> C4
 D6 -.-> C14
 D6 -.-> C4
 D1 -.-> C15
 D7 -.-> C16
-
+ 
 C14 --> C1
 C14 --> C2
 C14 --> C3
 C14 --> C4
 C4 --> C1
 C4 --> C3
-
+ 
 C4 -.-> T4
 C14 -.-> T4
 C15 -.-> T8
 C16 -.-> T9
 ```
-
+ 
 ---
-
+ 
 ### R6: Similar Jobs on Job Detail Page (Web)
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R6[R6: Similar Jobs - Web]
 end
-
+ 
 subgraph Design
 D1[D1: Web Frontend]
 D2[D2: Backend]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C13[C13: Recommendations]
 C15[C15: Web App Code]
 end
-
+ 
 subgraph Tests
 T5[T5: Integration Route Tests]
 T8[T8: Web Frontend Tests]
 end
-
+ 
 R6 -.-> D1
-
+ 
 D1 --> D2
-
+ 
 D2 -.-> C13
 D1 -.-> C15
-
+ 
 C13 --> C1
-
+ 
 C13 -.-> T5
 C15 -.-> T8
 ```
-
+ 
 ---
-
+ 
 ### R7: Similar Jobs on Job Detail Page (Mobile)
-
+ 
 ```mermaid
 graph LR
-
+ 
 subgraph Requirements
 R7[R7: Similar Jobs - Mobile]
 end
-
+ 
 subgraph Design
 D2[D2: Backend]
-D7[D7: Mobile Frontend]
+D7[D7: Mobile Client]
 end
-
+ 
 subgraph Code
 C1[C1: Auth]
 C13[C13: Recommendations]
 C16[C16: Mobile App Code]
 end
-
+ 
 subgraph Tests
 T5[T5: Integration Route Tests]
 T9[T9: Mobile Tests]
 end
-
+ 
 R7 -.-> D7
-
+ 
 D7 --> D2
-
+ 
 D2 -.-> C13
 D7 -.-> C16
-
+ 
 C13 --> C1
-
+ 
 C13 -.-> T5
 C16 -.-> T9
 ```
-
+ 
 ---
  
 ## Directed Graph of SLOs
