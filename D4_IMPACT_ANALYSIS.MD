@@ -713,14 +713,14 @@ Each node represents a backend code module (SLO). An edge `A → B` means module
 
 ### Which change requests are easy to apply and why?
 
-**CR-02 (Fix CORS Configuration): Only the CORS configuration in app.ts was changed. No business logic or database schema was touched, so there is no ripple effect.
+- CR-02 (Fix CORS Configuration): Only the CORS configuration in app.ts was changed. No business logic or database schema was touched, so there is no ripple effect.
 
 ### Which change requests are difficult to apply and why?
 
-**CR-05 (Applicant Search & Invitation System): A new Prisma model, migration, and multiple new endpoints were needed across backend, web, and mobile. SLO14 depends directly on SLO1, SLO2, SLO3, and SLO4. Accepting an invitation also auto-creates an Application, making SLO14 → SLO4 → SLO3 a chain that must all be tested together.
+- CR-05 (Applicant Search & Invitation System): A new Prisma model, migration, and multiple new endpoints were needed across backend, web, and mobile. SLO14 depends directly on SLO1, SLO2, SLO3, and SLO4. Accepting an invitation also auto-creates an Application, making SLO14 → SLO4 → SLO3 a chain that must all be tested together.
 
 ### To make the maintenance easier, what would you expect from the previous developers?
 
-**Accurate C4 diagrams** — Keep the C4 diagram accurate and up to date with the actual implementation.
+- Accurate C4 diagrams** — Keep the C4 diagram accurate and up to date with the actual implementation.
 
-**Higher baseline test coverage** — Only 4 out of 14 backend route modules had tests. C14 (Invitations) has no dedicated test file and shares T4, making it harder to isolate failures.
+- Higher baseline test coverage** — Only 4 out of 14 backend route modules had tests. C14 (Invitations) has no dedicated test file and shares T4, making it harder to isolate failures.
