@@ -655,32 +655,6 @@ C16 -.-> T9
  
 ---
  
-## Directed Graph of SLOs
-
-Each node represents a backend code module (SLO). An edge `A → B` means module A depends on module B. Dependencies are derived from two sources:
-1. **Middleware dependency** — C1 (Auth) is defined as comprising both `auth.routes.ts` and `auth.middleware.ts`. Every module that uses `authenticateToken` middleware depends on C1.
-2. **Prisma model ownership** — If module A queries a Prisma model whose primary CRUD operations are owned by module B, then A depends on B.
- 
-- SLO1: Auth Module
-- SLO2: Users Module
-- SLO3: Jobs Module
-- SLO4: Applications Module
-- SLO5: Search Module
-- SLO6: Bookmarks Module
-- SLO7: Interviews Module
-- SLO8: Payments Module
-- SLO9: Chat Module
-- SLO10: Conference Module
-- SLO11: Verifications Module
-- SLO12: Reports Module
-- SLO13: Recommendations Module
-- SLO14: Invitations Module
-
-
-![Directed_graph.png](./images/Directed_graph.png)
- 
----
- 
 ## Connectivity Matrix
  
 | | SLO1 | SLO2 | SLO3 | SLO4 | SLO5 | SLO6 | SLO7 | SLO8 | SLO9 | SLO10 | SLO11 | SLO12 | SLO13 | SLO14 |
