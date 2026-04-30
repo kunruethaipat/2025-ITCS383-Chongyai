@@ -713,20 +713,14 @@ Each node represents a backend code module (SLO). An edge `A → B` means module
 
 ### Which change requests are easy to apply and why?
 
-**CR-02 (Fix Publish Announcement Frontend Payload)** is the easiest. The traceability graph for R2 only affects D1 and C15. No backend or database changes are needed. C15 has no dependencies in the SLO graph, so there is no ripple effect.
-
-**CR-06 (Similar Jobs Section)** is also easy. It only adds a frontend hook that calls an existing endpoint. C13 (Recommendations) is never modified, so no backend ripple effect occurs.
+**CR-02 (Fix CORS Configuration): Only the CORS configuration in app.ts was changed. No business logic or database schema was touched, so there is no ripple effect.
 
 ### Which change requests are difficult to apply and why?
 
-**CR-03 (Flutter Mobile Application — Core Features)** is the most difficult. The traceability graph for R3 touches D2, D6, D7, and almost all code modules C1–C14, because a completely new mobile platform had to be built from scratch. The connectivity matrix shows the longest path is SLO10 → SLO3 at distance 3, meaning multi-level integration testing is required.
-
-**CR-05 (Applicant Search & Invitation System)** is also difficult. It touches all four main containers and required a new Prisma model and migration. SLO14 depends directly on SLO2, SLO3, and SLO4. Accepting an invitation also auto-creates an Application, making SLO14 → SLO4 → SLO3 a chain that must be tested together across both web and mobile.
+**CR-05 (Applicant Search & Invitation System): A new Prisma model, migration, and multiple new endpoints were needed across backend, web, and mobile. SLO14 depends directly on SLO1, SLO2, SLO3, and SLO4. Accepting an invitation also auto-creates an Application, making SLO14 → SLO4 → SLO3 a chain that must all be tested together.
 
 ### To make the maintenance easier, what would you expect from the previous developers?
 
-**Accurate C4 diagrams** — Several containers did not match the actual implementation. The Chatbot Service was labeled Python but was TypeScript, the Report Database was shown as separate but shared the same PostgreSQL instance, and the Payment Service appeared in the diagram but was never called by the backend.
+**Accurate C4 diagrams** — Keep the C4 diagram accurate and up to date with the actual implementation.
 
 **Higher baseline test coverage** — Only 4 out of 14 backend route modules had tests. C14 (Invitations) has no dedicated test file and shares T4, making it harder to isolate failures.
-
-**Module dependency documentation** — There was no document explaining which route modules query the Prisma models of other modules. The team had to read every source file one by one and cross-reference them with the Prisma schema to build the SLO dependency graph.
