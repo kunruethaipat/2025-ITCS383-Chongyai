@@ -721,6 +721,6 @@ Each node represents a backend code module (SLO). An edge `A → B` means module
 
 ### To make the maintenance easier, what would you expect from the previous developers?
 
-- Accurate C4 diagrams** — Keep the C4 diagram accurate and up to date with the actual implementation.
+- Accurate C4 diagrams — Keep the C4 diagram accurate and up to date with the actual implementation.
 
-- Higher baseline test coverage** — Only 4 out of 14 backend route modules had tests. C14 (Invitations) has no dedicated test file and shares T4, making it harder to isolate failures.
+- Higher baseline test coverage — Only 4 out of 14 backend route modules had tests. C14 (Invitations) has no dedicated test file and shares T4, making it harder to isolate failures.
