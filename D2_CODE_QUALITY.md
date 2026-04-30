@@ -1,8 +1,8 @@
 # D2: Code Quality Analysis
 
-**Project:** Job Center Management System
-**Group:** Chongyai (Maintainer)
-**Tool:** SonarQube Cloud
+**Project:** Job Center Management System  
+**Group:** Chongyai (Maintainer)  
+**Tool:** SonarQube Cloud  
 
 ---
 
@@ -25,8 +25,8 @@
 | New Code Definition | Previous Version                           |
 | Versioning Strategy | Increment `sonar.projectVersion` every run |
 
-**Explanation:**
-SonarQube compares the current version with the previous version to analyze only newly added or modified code.
+**Explanation:**  
+SonarQube compares the current version with the previous version to analyze only newly added or modified code, ensuring that quality evaluation focuses strictly on recent changes.
 
 ---
 
@@ -51,7 +51,9 @@ SonarQube compares the current version with the previous version to analyze only
 | Code Smells             | ~2.9k  |
 | Quality Gate            | PASSED |
 
-<img width="1680" height="974" alt="image" src="https://github.com/user-attachments/assets/2adb713a-2a94-44ea-b370-ef2273f6f37c" />
+![Before Analysis](https://github.com/user-attachments/assets/2adb713a-2a94-44ea-b370-ef2273f6f37c)
+
+*Figure 1: SonarQube analysis before applying the changes.*
 
 ---
 
@@ -65,7 +67,17 @@ SonarQube compares the current version with the previous version to analyze only
 | Code Smells             | ~2.9k  |
 | Quality Gate            | PASSED |
 
-<img width="1680" height="978" alt="image" src="https://github.com/user-attachments/assets/edd9becd-f759-473f-aa31-39deb6a50513" />
+![After Analysis](https://github.com/user-attachments/assets/edd9becd-f759-473f-aa31-39deb6a50513)
+
+*Figure 2: SonarQube analysis after applying the changes.*
+
+---
+
+### Comparison Analysis
+
+Although the overall code coverage remains unchanged at 41.7%, the newly added and modified code is fully covered by tests (100%).
+
+This indicates that the recent changes were implemented with proper testing practices and did not negatively impact the existing system quality.
 
 ---
 
@@ -77,6 +89,19 @@ SonarQube compares the current version with the previous version to analyze only
 | ---------------- | ------------------------------------- |
 | Detection Method | Version comparison (Previous Version) |
 | Status           | Successfully detected new code        |
+
+---
+
+### Evidence of New Code Configuration
+
+The project is configured to use the "Previous Version" strategy for defining new code.
+
+This is verified by:
+- SonarQube indicating "New code: since version 23"
+- Detection of 4 new lines of code
+- Separate metrics for new code (coverage = 100%)
+
+This confirms that the new code configuration is correctly applied.
 
 ---
 
@@ -112,29 +137,32 @@ SonarQube compares the current version with the previous version to analyze only
 
 ## Evidence of Quality Preservation
 
-* No new bugs introduced
-* No new vulnerabilities detected
-* No new code smells introduced
-* Coverage on new code reached 100%
-* Quality Gate passed successfully
+- No new bugs were introduced  
+- No new vulnerabilities were detected  
+- No additional code smells were introduced in the new code  
+- Test coverage on new code reached 100%  
+- Quality Gate passed successfully after changes  
+
+---
+
+## CI/CD Integration
+
+The analysis is automated through a CI pipeline using GitHub Actions.
+
+The analysis was executed after applying the changes through the CI pipeline, ensuring that the reported results reflect the updated system state.
 
 ---
 
 ## Conclusion
 
-The analysis confirms that:
+The results demonstrate that the applied changes maintain the overall software quality without introducing defects or degrading maintainability.
 
-* The implemented changes do not degrade code quality
-* The system maintains high reliability and maintainability
-* The new code coverage exceeds 90%, satisfying the requirement
+Although the overall code coverage remains unchanged at 41.7%, the newly added and modified code achieves 100% test coverage. This confirms that all recent changes are well-tested and comply with the required quality standards.
 
 ---
 
 ## Appendix
 
-* SonarQube screenshots (before & after)
-* SonarQube new code coverage screenshot
-* CI/CD configuration (`ci.yml`)
-* Coverage reports
-
----
+- Repository: https://github.com/outoft3n/2025-ITCS383-Chongyai  
+- SonarQube Dashboard (latest version)  
+- CI/CD configuration (`.github/workflows/ci.yml`)
