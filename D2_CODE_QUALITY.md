@@ -109,7 +109,6 @@ This confirms that the new code configuration is correctly applied.
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Lines of New Code    | 4     |
 | Coverage on New Code | 100%  |
 | New Bugs             | 0     |
 | New Vulnerabilities  | 0     |
